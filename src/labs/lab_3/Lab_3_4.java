@@ -1,6 +1,6 @@
 package labs.lab_3;
 
-public class Lab_3_4 extends ArrayHelper{
+public class Lab_3_4 {
     public static void main(String[] args) {
         ArrayHelper arrayHelper = new ArrayHelper();
         int[] integerArrayA = arrayHelper.inputAnArray();
