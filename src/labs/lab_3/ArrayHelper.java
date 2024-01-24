@@ -39,9 +39,11 @@ public class ArrayHelper {
 
     public int findMin(int[] integerArray){
         int min = integerArray[0];
-        for (int index = 0; index < integerArray.length; index++) {
-            if (integerArray[index] < min){
-                min = integerArray[index];
+        if (integerArray.length > 2){
+            for (int index = 1; index < integerArray.length; index++) {
+                if (integerArray[index] < min){
+                    min = integerArray[index];
+                }
             }
         }
         return min;
@@ -49,9 +51,11 @@ public class ArrayHelper {
 
     public int findMax(int[] integerArray){
         int max = integerArray[0];
-        for (int index = 0; index < integerArray.length; index++) {
-            if (integerArray[index] > max){
-                max = integerArray[index];
+        if (integerArray.length > 2){
+            for (int index = 1; index < integerArray.length; index++) {
+                if (integerArray[index] > max){
+                    max = integerArray[index];
+                }
             }
         }
         return max;
