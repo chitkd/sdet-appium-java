@@ -7,21 +7,16 @@ import java.util.Scanner;
 
 public class Lab_4 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
         List<Integer> randomArrayList = generateAnArrayList(1000);
         boolean isContinuing = true;
         do {
-            System.out.println("=====MENU======\n" +
-                    "1. Print all numbers\n" +
-                    "2. Print maximum value\n" +
-                    "3. Print minimum value\n" +
-                    "4. Search number");
+            printGameMenu();
             System.out.println("=> Please input your selection: ");
+            Scanner scanner = new Scanner(System.in);
             int selection = scanner.nextInt();
 
             switch (selection) {
                 case 1:
-                    System.out.println("All the numbers that we have in the array list: ");
                     printAllNumbers(randomArrayList);
                     break;
                 case 2:
@@ -31,20 +26,20 @@ public class Lab_4 {
                     System.out.println("The minimum number from array list: " + findMin(randomArrayList));
                     break;
                 case 4:
-                    System.out.println("Please input a number to search: ");
-                    int number = scanner.nextInt();
-                    List<Integer> searchIndex = searchNumber(randomArrayList, number);
-                    if (searchIndex.size() > 0){
-                        System.out.println(number + " is existing in arraylist and its index: " + searchIndex);
-                    }
-                    else {
-                        System.out.println(number + " is not in the list");
-                    }
+                    searchNumberFromAnArray(randomArrayList);
                     break;
                 default:
                     isContinuing = false;
             }
         } while (isContinuing);
+    }
+
+    private static void printGameMenu() {
+        System.out.println("=====MENU=====\n" +
+                "1. Print all numbers\n" +
+                "2. Print maximum value\n" +
+                "3. Print minimum value\n" +
+                "4. Search number");
     }
 
     private static List<Integer> generateAnArrayList(int upperBound) {
@@ -58,7 +53,7 @@ public class Lab_4 {
     }
 
     private static void printAllNumbers(List<Integer> arrayList){
-        System.out.println(arrayList);
+        System.out.println("All the numbers that we have in the array list: " + arrayList);
     }
 
     private static int findMax(List<Integer> arrayList){
@@ -85,6 +80,18 @@ public class Lab_4 {
         return min;
     }
 
+    private static void searchNumberFromAnArray(List<Integer> arrayList){
+        System.out.println("Please input a number to search: ");
+        Scanner scanner = new Scanner(System.in);
+        int number = scanner.nextInt();
+        List<Integer> searchIndex = searchNumber(arrayList, number);
+        if (searchIndex.size() > 0){
+            System.out.println(number + " is existing in arraylist and its index: " + searchIndex);
+        }
+        else {
+            System.out.println(number + " is not in the list");
+        }
+    }
     private static List<Integer> searchNumber(List<Integer> arrayList, int number){
         List<Integer> indexList = new ArrayList<>();
         for (int index = 0; index < arrayList.size(); index++) {
