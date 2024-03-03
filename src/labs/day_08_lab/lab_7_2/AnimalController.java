@@ -5,7 +5,7 @@ import java.util.List;
 public class AnimalController {
     public static void findWinnerForRacing(List<Animal> animalList){
         int winnerSpeed = 0;
-        Animal winnerAnimal = null;
+        Animal winnerAnimal = new Animal();
         if (!animalList.isEmpty()){
             for (Animal animal : animalList) {
                 int currentAnimalSpeed = animal.getSpeed();
